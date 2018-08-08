@@ -4,6 +4,8 @@
 
 
 ## TODO: Implement these
-#GET     /health                 controllers.HealthController.getPatientHealthInfo()
+GET      /address               controllers.AddressController.getPatientAddress()
 
-#POST    /health                 controllers.HealthController.putPatientHealthInfo()
+DELETE   /address/:addressId    controllers.AddressController.deletePatientAddress(addressId: Long)
+
+POST     /address               controllers.AddressController.addPatientAddress()
