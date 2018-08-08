@@ -3,7 +3,7 @@ name := "pocketpillsassignmentbase"
  
 version := "1.0" 
       
-lazy val `pocketpillsassignmentbase` = (project in file(".")).enablePlugins(PlayJava)
+lazy val `pocketpillsassignmentbase` = (project in file(".")).enablePlugins(PlayJava, PlayEbean)
 
 resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases"
       
@@ -29,8 +29,27 @@ libraryDependencies += play.sbt.PlayImport.cacheApi
 // include play-redis library
 libraryDependencies += "com.github.karelcemus" %% "play-redis" % "2.2.0"
 
-// https://mvnrepository.com/artifact/de.mkammerer/argon2-jvm
-libraryDependencies += "de.mkammerer" % "argon2-jvm" % "2.4"
+libraryDependencies += "io.ebean" % "ebean-mocker" % "11.18.1" % Test
+
+libraryDependencies += "org.hibernate.validator" % "hibernate-validator" % "6.0.11.Final"
+
+// https://mvnrepository.com/artifact/org.glassfish/javax.el
+libraryDependencies += "org.glassfish" % "javax.el" % "3.0.0"
+
+// https://mvnrepository.com/artifact/javax.el/javax.el-api
+libraryDependencies += "javax.el" % "javax.el-api" % "3.0.0"
+
+
+libraryDependencies += "software.amazon.awssdk" % "ses" % "2.0.0-preview-1"
+
+libraryDependencies += "javax.mail" % "mail" % "1.5.0-b01"
+
+libraryDependencies += "org.mockito" % "mockito-core" % "2.20.0" % Test
+
+libraryDependencies += "org.apache.commons" % "commons-text" % "1.2"
+
+// https://mvnrepository.com/artifact/org.redisson/redisson
+libraryDependencies += "org.redisson" % "redisson" % "3.7.5"
 
 jacocoReportSettings := JacocoReportSettings()
   .withThresholds(
@@ -53,4 +72,4 @@ jacocoExcludes in Test := Seq(
   "*.routes*"
 )
 
-lazy val myProject = (project in file(".")).enablePlugins(PlayJava, PlayEbean)
+resolvers += Resolver.sbtPluginRepo("releases")
