@@ -1,20 +1,10 @@
 package utils;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.google.common.base.Preconditions;
-import models.Credentials;
-import org.mindrot.jbcrypt.BCrypt;
 import play.libs.Json;
 
 import javax.inject.Inject;
-import javax.validation.constraints.NotNull;
-import java.nio.charset.Charset;
-import java.security.SecureRandom;
-import java.util.Base64;
-import java.util.HashSet;
-import java.util.Random;
-import java.util.concurrent.CompletionStage;
+
 
 public class AppUtil {
 
@@ -49,6 +39,5 @@ public class AppUtil {
         successObj.put(STR_MESSAGE, message);
         return successObj;
     }
-
 
 }
