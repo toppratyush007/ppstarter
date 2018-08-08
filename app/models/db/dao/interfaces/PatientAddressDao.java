@@ -27,14 +27,6 @@ public interface PatientAddressDao {
 
 
     /**
-     * Returns {@see PatientAddress} information corresponding to the
-     * {@code addressId}.
-     * @param addressId {@see PatientAddress} identifier
-     * @return CompletableFuture of type {@see PatientAddress}
-     */
-    CompletionStage<PatientAddress> getAddressById(long addressId);
-
-    /**
      * Inserts the address with enabled flag set as True.
      * Assumption: This entry does not exist in the database already
      *

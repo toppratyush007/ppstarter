@@ -17,10 +17,6 @@ public class PatientAddressDaoImpl implements PatientAddressDao {
         return null;
     }
 
-    @Override
-    public CompletionStage<PatientAddress> getAddressById(long addressId) {
-        return null;
-    }
 
     @Override
     public CompletionStage<Long> addPatientAddress(long patientId, PatientAddress address) {

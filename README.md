@@ -31,3 +31,16 @@ You can connect to the database using the following command:
  3) In the next step, ensure that the following two options are selected 
      1) sbt sources
      2) Use sbt shell for build and import
+
+
+#### Testing 
+To run the test cases, run the following command on the terminal:
+>```sbt test```
+
+#### Coverage
+It is essential that the code has a good code coverage. To test whether
+the code passes the coverage, run
+>```sbt jacoco``` 
+
+If the coverage is not met, you will receive an error, the details
+of which will be present in a generated report. 
