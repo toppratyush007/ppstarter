@@ -8,7 +8,9 @@ import java.util.concurrent.CompletionStage;
 public class AddressController extends Controller {
 
     /**
-     * Retrieves the List of addresses which are enabled corresponding to the patientId present in the header
+     * Retrieves the List of addresses which are enabled corresponding to the patientId
+     * (presented in the header as patient_id)
+     * present in the header
      *
      * The addresses are given in the table
      * @see models.db.PatientAddress
@@ -22,7 +24,16 @@ public class AddressController extends Controller {
     }
 
     /**
-     * @see models.db.PatientAddress and the body are bound together. The patientId is present in the header
+     * @see models.db.PatientAddress and the body are bound together.
+     * The json body will look like as follows:
+     * {
+     *     "nickname": "John Doe",
+     *     "province": "Manitoba",
+     *     "postal_code": "V0S0B1",
+     *     "street_address": "410, Hasbrouck, Gali number 37, Sector 4",
+     *     "city": "Toronto",
+     * }
+     * The patientId is present in the header (presented in the header as patient_id)
      *
      * This object is saved in the table with enabled as True
      *
