@@ -40,4 +40,18 @@ public class AppUtil {
         return successObj;
     }
 
+    /**
+     * Returns the last 4 digits of the credit card number
+     * e.g.
+     * if the card number is 4242-4242-4242-1234, we return 1234
+     * @param cardNumber credit card number
+     * @return Last 4-digits of credit card number
+     */
+    public static String getLast4CCDigits(String cardNumber) {
+        if (cardNumber.length()>=3) {
+            return cardNumber.substring(cardNumber.length()-4);
+        }
+        return null;
+    }
+
 }

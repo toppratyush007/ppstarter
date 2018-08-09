@@ -4,8 +4,10 @@
 
 
 ## TODO: Implement these
-GET      /address               controllers.AddressController.getPatientAddress()
+GET      /card/:cardId               controllers.PatientCreditCardController.getCreditCardInfo(cardId: Long)
 
-DELETE   /address/:addressId    controllers.AddressController.deletePatientAddress(addressId: Long)
+GET     /card                       controllers.PatientCreditCardController.getPatientCreditCard()
 
-POST     /address               controllers.AddressController.addPatientAddress()
+DELETE   /card/:cardId    controllers.PatientCreditCardController.deletePatientCreditCard(addressId: Long)
+
+POST     /card               controllers.PatientCreditCardController.putPatientCreditCard()
