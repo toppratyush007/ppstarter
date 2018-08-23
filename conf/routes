@@ -4,10 +4,10 @@
 
 
 ## TODO: Implement these
-GET      /card/:cardId               controllers.PatientCreditCardController.getCreditCardInfo(cardId: Long)
+#GET      /card/:cardId               controllers.PatientCreditCardController.getCreditCardInfo(cardId: Long)
 
-GET     /card                       controllers.PatientCreditCardController.getPatientCreditCard()
+#GET     /card                       controllers.PatientCreditCardController.getPatientCreditCard()
 
-DELETE   /card/:cardId    controllers.PatientCreditCardController.deletePatientCreditCard(addressId: Long)
+#DELETE   /card/:cardId    controllers.PatientCreditCardController.deletePatientCreditCard(addressId: Long)
 
-POST     /card               controllers.PatientCreditCardController.putPatientCreditCard()
+#POST     /card               controllers.PatientCreditCardController.putPatientCreditCard()
