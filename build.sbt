@@ -19,15 +19,8 @@ libraryDependencies += guice
 
 libraryDependencies += evolutions
 
-libraryDependencies += "org.postgresql" % "postgresql" % "42.1.4"
-
-// https://mvnrepository.com/artifact/org.mindrot/jbcrypt
-libraryDependencies += "org.mindrot" % "jbcrypt" % "0.4"
-
 // enable Play cache API (based on your Play version)
 libraryDependencies += play.sbt.PlayImport.cacheApi
-// include play-redis library
-libraryDependencies += "com.github.karelcemus" %% "play-redis" % "2.2.0"
 
 libraryDependencies += "io.ebean" % "ebean-mocker" % "11.18.1" % Test
 

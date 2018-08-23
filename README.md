@@ -2,22 +2,11 @@
 
 ### Prerequisites
 
-#### Database
+#### Cache
 
-1) Install PostgreSQL.
-
-2) Create a user named _pocketpilluser_:
-    >```create role pocketpillsuser with LOGIN PASSWORD 'pocketpills@123';```
-
-3) Create a database named _pocketpillsdb_:
-    >```create database pocketpillsdb; ```
-    
-4) Provide **create db** role to pocketpillsuser:
-    >```alter role pocketpillsuser createdb;```
-    
-
-You can connect to the database using the following command:
->```psql -h localhost -d pocketpillsdb -U pocketpillsuser```
+1) Install Redis Server
+2) Ensure that the server access is password protected.
+3) Keep the username as `pocketpills_redis_user` and password as `pocketpills`
 
 #### Framework
 

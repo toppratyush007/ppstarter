@@ -1,7 +1,8 @@
 package controllers;
 
-import org.junit.Test;
-
+/**
+ * The controller test cases go here
+ */
 public class CacheControllerTest {
 
 }
