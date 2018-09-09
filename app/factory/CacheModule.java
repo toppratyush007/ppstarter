@@ -1,14 +1,16 @@
 package factory;
 
 import com.google.inject.AbstractModule;
+import com.google.inject.Inject;
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
+import com.typesafe.config.Config;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;
-import org.redisson.config.Config;
 
 import javax.inject.Named;
+
 
 /**
  * Created by pratyush.k on 09/09/18.
@@ -24,12 +26,18 @@ public class CacheModule extends AbstractModule {
     @Provides
     @Named("redisson")
     @Singleton
-    public RedissonClient getRedisClient() {
+    @Inject
+    public RedissonClient getRedisClient(Config config) {
         try {
-            Config config = new Config();
-            config.useSingleServer()
-                    .setAddress("redis://127.0.0.1:6379");
-            return Redisson.create(config);
+            org.redisson.config.Config redisConfig = new org.redisson.config.Config();
+            redisConfig.useSingleServer()
+                    .setAddress(config.getString("redis.host"))
+                    .setClientName(config.getString("redis.username"));
+            String password = config.getString("redis.password");
+            if (!password.isEmpty()) {
+                redisConfig.useSingleServer().setPassword(password);
+            }
+            return Redisson.create(redisConfig);
         } catch (Exception e) {
             log.error("Unable to create the redisson client {}", e);
             throw e;
