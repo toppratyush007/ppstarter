@@ -6,7 +6,8 @@
 
 1) Install Redis Server
 2) Ensure that the server access is password protected.
-3) Keep the username as `pocketpills_redis_user` and password as `pocketpills`
+3) Keep the username as `pocketpills_redis_user` and password as `pocketpills`.
+If instead you want to use no password and username, use `sbt "run -Dconfig.resource=local.conf"`.
 
 #### Framework
 
