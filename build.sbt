@@ -32,6 +32,10 @@ libraryDependencies += "org.glassfish" % "javax.el" % "3.0.0"
 // https://mvnrepository.com/artifact/javax.el/javax.el-api
 libraryDependencies += "javax.el" % "javax.el-api" % "3.0.0"
 
+libraryDependencies += "org.projectlombok" % "lombok" % "1.16.16"
+
+// mock redis db
+libraryDependencies += "ai.grakn" % "redis-mock" % "0.1.6"
 
 libraryDependencies += "software.amazon.awssdk" % "ses" % "2.0.0-preview-1"
 
@@ -61,8 +65,12 @@ jacocoExcludes in Test := Seq(
   "controllers.javascript.*",
   "jooq.*",
   "Module",
+  "models.*",
+  "factory.*",
   "router.Routes*",
   "*.routes*"
 )
+
+logLevel in run := sbt.Level.Error
 
 resolvers += Resolver.sbtPluginRepo("releases")

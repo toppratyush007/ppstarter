@@ -1,0 +1,107 @@
+{
+	"variables": [],
+	"info": {
+		"name": "pocketpills",
+		"_postman_id": "bf030adb-fe18-e9b8-57de-ce330966c551",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "cache-get-object",
+			"request": {
+				"url": "localhost:9000/cache/mymap/a",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "without expiry"
+			},
+			"response": []
+		},
+		{
+			"name": "cache-add-object",
+			"request": {
+				"url": "localhost:9000/cache/mymap",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"key\":\"a\",\n\t\"value\":\"1\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "cache-delete-request",
+			"request": {
+				"url": "localhost:9000/cache/mymap/a",
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "deletes a key from map"
+			},
+			"response": []
+		},
+		{
+			"name": "cache-add-object-ttl",
+			"request": {
+				"url": "localhost:9000/cache/mymap",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"key\":\"a\",\n\t\"value\":\"1\",\n\t\"ttl\":60\n}"
+				},
+				"description": "add object with ttl"
+			},
+			"response": []
+		},
+		{
+			"name": "add-to-set",
+			"request": {
+				"url": "localhost:9000/set/myset",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"key\":\"s1\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "check-set-existence",
+			"request": {
+				"url": "localhost:9000/set/myset/s1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "checks if previously added key exists in set"
+			},
+			"response": []
+		}
+	]
+}

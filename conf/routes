@@ -11,3 +11,10 @@
 #DELETE   /card/:cardId    controllers.PatientCreditCardController.deletePatientCreditCard(addressId: Long)
 
 #POST     /card               controllers.PatientCreditCardController.putPatientCreditCard()
+
+
+PUT           /cache/:mapName             controllers.CacheController.addObject(mapName: String)
+GET           /cache/:mapName/:key        controllers.CacheController.getObject(mapName: String, key:String)
+DELETE        /cache/:mapName/:key        controllers.CacheController.deleteMapKey(mapName: String, key:String)
+PUT           /set/:setName               controllers.CacheController.addKeyToSet(setName:String)
+GET           /set/:setName/:key          controllers.CacheController.doesKeyExistInSet(setName: String, key:String)
