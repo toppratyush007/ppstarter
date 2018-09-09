@@ -45,51 +45,63 @@ public class RedisCacheServiceImplTest {
     @Test
     public void addObject() throws Exception {
         redisCacheService.addObject("mymap", "a", 1).get();
-        assertEquals("In mymap a is 1", 1, redissonClient.getMapCache("mymap").get("a"));
+        assertEquals("In mymap a is 1",
+                1, redissonClient.getMapCache("mymap").get("a"));
     }
 
     @Test
     public void getObject() throws Exception {
         redissonClient.getMapCache("mymap").put("b", 2);
-        assertEquals("In mymap b is 2", 2, redisCacheService.getObject("mymap", "b").get());
+        assertEquals("In mymap b is 2",
+                2, redisCacheService.getObject("mymap", "b").get());
+
         server.stop();
         CompletableFuture<Object> completableFuture =
                 redisCacheService.getObject("mymap", "ex");
-        assertEquals("Mymap should end with exception", false, completableFuture.get());
+        assertEquals("Mymap should end with exception",
+                false, completableFuture.get());
     }
 
     @Test
     public void addObjectWithExpiry() throws Exception {
         redisCacheService.addObjectWithExpiry("mymap", "c", 3, 5).get();
-        assertEquals("In mymap c is 3", 3, redissonClient.getMapCache("mymap").get("c"));
+        assertEquals("In mymap c is 3",
+                3, redissonClient.getMapCache("mymap").get("c"));
         Thread.sleep(6000);
-        assertEquals("In mymap c should now be null", null, redissonClient.getMapCache("mymap").get("c"));
+        assertEquals("In mymap c should now be null",
+                null, redissonClient.getMapCache("mymap").get("c"));
     }
 
     @Test
     public void setKey() throws Exception {
         redisCacheService.setKey("mymap", "d", "4").get();
-        assertEquals("In mymap d is 4", "4", redissonClient.getMapCache("mymap").get("d"));
+        assertEquals("In mymap d is 4",
+                "4", redissonClient.getMapCache("mymap").get("d"));
     }
 
     @Test
     public void deleteMapKey() throws Exception {
         redissonClient.getMapCache("mymap").put("e", 5);
-        assertEquals("In mymap e is set", 5, redissonClient.getMapCache("mymap").get("e"));
-        assertEquals("Deletion in redis successful", true, redisCacheService.deleteMapKey("mymap", "e").get());
-        assertEquals("In mymap e is now deleted", null, redissonClient.getMapCache("mymap").get("e"));
+        assertEquals("In mymap e is set",
+                5, redissonClient.getMapCache("mymap").get("e"));
+        assertEquals("Deletion in redis successful",
+                true, redisCacheService.deleteMapKey("mymap", "e").get());
+        assertEquals("In mymap e is now deleted",
+                null, redissonClient.getMapCache("mymap").get("e"));
     }
 
     @Test
     public void addKeyToSet() throws Exception {
         redisCacheService.addKeyToSet("myset", "s1").get();
-        assertEquals("myset should contain s1", true, redissonClient.getSet("myset").contains("s1"));
+        assertEquals("myset should contain s1",
+                true, redissonClient.getSet("myset").contains("s1"));
     }
 
     @Test
     public void doesKeyExistInSet() throws Exception {
         redissonClient.getSet("myset").add("s2");
-        assertEquals("myset should contain s2", true, redisCacheService.doesKeyExistInSet("myset", "s2").get());
+        assertEquals("myset should contain s2",
+                true, redisCacheService.doesKeyExistInSet("myset", "s2").get());
     }
 
     @Test
